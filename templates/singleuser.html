@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for blog in blogs %}
+        <a href='/post?id={{blog.id}}'>{{blog.btitle}}</a>
+        <br>
+        {{blog.bpost}}
+        <br>
+        By: <a href='/post?user={{user.id}}'>{{user.email}}</a>
+        <br>
+        <br>
+    {% endfor %}
+
+{% endblock %}

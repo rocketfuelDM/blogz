@@ -1,16 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}Blog entries{% endblock %}
-
 {% block content %}
-
-{% for entry in object_list %}
-  <h3>
-    <a href="/post?id={{ entry.id }}">
-    {{ entry.btitle }}
-    </a>
+<h2>Active User</h2>
+{% for user in userlist %}
+    <h3>
+      <a href="/post?user={{ user.id }}">
+      {{ user.email }}
+      </a>
   </h3>
-  <p> {{ entry.bpost }}</p>
+
 {% endfor %}
 
 {% endblock %}
