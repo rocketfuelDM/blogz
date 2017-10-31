@@ -1,5 +1,5 @@
 
-from flask import Flask, request, redirect, render_template, send_file
+from flask import Flask, request, redirect, render_template, send_file, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from hashutils import make_pw_hash, check_pw_hash
@@ -68,8 +68,8 @@ def post():
         users = User.query.all()
         return render_template('blog.html', title='Blogz', blog_posts=blog_posts, users=users)
 
-@app.route('/newpost', methods=['POST', 'GET'])
-def newpost():
+@app.route('/new_post', methods=['POST', 'GET'])
+def new_post():
     print("test")
     owner = User.query.filter_by(email=session['email']).first()
     print("test2")
@@ -93,7 +93,7 @@ def newpost():
             db.session.commit()
             return redirect('/post?id=' + str(new_blog.id))
 
-    return render_template('newpost.html',title="Build-A-Blog!")    
+    return render_template('new_post.html',title="Build-A-Blog!")    
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Create entry{% endblock %}
+
+{% block content %}
+
+<form action="new_post" method='POST'>
+  <h3 style=fontfamily:helvetica>Title:</h3>
+  <input type="text" name="title">
+  <br>
+  <br>
+  <label style=fontfamily:open-sans>Entry:</label><br>
+  <textarea name="entry" rows="25" cols="50"></textarea><br><br>
+  <input type="submit" value="Create Entry">
+</form>
+
+
+{% endblock %}
